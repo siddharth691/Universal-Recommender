@@ -16,7 +16,7 @@ class urecommend:
                   
                   'primaryEvent': zero indexed location of primary event in the eventNames list (int)
                   
-                  'algorithm': dictionary
+                  'algorithm': (dictionary)
                                keys: 'name': 'Universal Recommender' (string)
                                      'no_recommendations': number of recommendations to return (int)
                                      'time_dependency': Include time factor or not (Boolean (True/False))
@@ -147,7 +147,7 @@ class urecommend:
         
         user_llr = pd.DataFrame(user_llr, index=self.coocurrence[list(self.coocurrence.keys())[0]].index, columns =['llr'])
 
-        logging.info('Predicted for given user')
+        logging.info('predicted for given user')
 
         return list(user_llr.sort_values('llr', axis=0, ascending=False).index)[:self.no_recommendations]
         
